@@ -1,0 +1,36 @@
+import "objidl.idl";
+import "oaidl.idl";
+import "propidl.idl";
+
+enum Fruit {
+    Apples = 0,
+    Oranges,
+    Grapes,
+};
+
+[
+    object,
+    uuid(a7c97d53-cf24-4453-bd17-55a48e1d0510),
+    local,
+    helpstring("Washington interface."),
+    pointer_default(unique)
+]
+interface IWashington: IUnknown
+{
+    HRESULT Load();
+    HRESULT LoadFrom(
+        [in][annotation("_In_")] LPCOLESTR path
+    );
+}
+
+[
+    object,
+    uuid(e27af699-bc37-47b8-ad97-1c6720389efd),
+    local,
+    helpstring("Washington2 Interface"),
+    pointer_default(unique)
+]
+interface IWashington2: IWashington
+{
+    HRESULT Load2();
+}

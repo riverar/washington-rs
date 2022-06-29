@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.Windows.WinmdGenerator/0.24.2-preview">
+    <PropertyGroup Label="Globals">
+        <OutputWinmd>../.windows/winmd/Washington.winmd</OutputWinmd>
+        <WinmdVersion>255.255.255.255</WinmdVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <Idls Include="idl\washington.idl" />
+        <Partition Include="washington.cpp">
+            <TraverseFiles>$(CompiledHeadersDir)\washington.h</TraverseFiles>
+            <Namespace>Microsoft.Washington</Namespace>
+        </Partition>
+    </ItemGroup>
+</Project>
