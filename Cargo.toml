@@ -31,4 +31,5 @@ features = [
 default = []
 deprecated = []
 implement = ["windows/implement"]
-Washington = []
+States = ["windows/Win32_Foundation"]
+States_Washington = ["States"]

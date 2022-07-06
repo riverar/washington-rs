@@ -1,12 +1,7 @@
 import "objidl.idl";
 import "oaidl.idl";
 import "propidl.idl";
-
-enum Fruit {
-    Apples = 0,
-    Oranges,
-    Grapes,
-};
+import "state.idl";
 
 [
     object,

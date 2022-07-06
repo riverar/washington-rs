@@ -1,0 +1,15 @@
+import "objidl.idl";
+import "oaidl.idl";
+import "propidl.idl";
+
+[
+    object,
+    uuid(2f0cf45d-04a9-43cc-bc50-ebfe429fcecf),
+    local,
+    helpstring("State interface."),
+    pointer_default(unique)
+]
+interface IState: IUnknown
+{
+    HRESULT GetFlower([out, retval] BSTR* flower);
+}

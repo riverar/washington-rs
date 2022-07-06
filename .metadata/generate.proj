@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.Windows.WinmdGenerator/0.24.2-preview">
     <PropertyGroup Label="Globals">
-        <OutputWinmd>../.windows/winmd/Washington.winmd</OutputWinmd>
+        <OutputWinmd>../.windows/winmd/Microsoft.States.winmd</OutputWinmd>
         <WinmdVersion>255.255.255.255</WinmdVersion>
+        <AdditionalIncludes>idl/</AdditionalIncludes>
     </PropertyGroup>
     <ItemGroup>
-        <Idls Include="idl\washington.idl" />
+        <Idls Include="idl\washington.idl;idl\state.idl" />
+        <Partition Include="state.cpp">
+            <TraverseFiles>$(CompiledHeadersDir)\state.h</TraverseFiles>
+            <Namespace>Microsoft.States</Namespace>
+        </Partition>
         <Partition Include="washington.cpp">
             <TraverseFiles>$(CompiledHeadersDir)\washington.h</TraverseFiles>
-            <Namespace>Microsoft.Washington</Namespace>
+            <Namespace>Microsoft.States.Washington</Namespace>
         </Partition>
     </ItemGroup>
 </Project>
