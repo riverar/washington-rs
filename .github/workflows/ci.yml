@@ -1,0 +1,51 @@
+on:
+  push:
+  pull_request:
+
+jobs:
+  generate-winmd:
+    name: Generate winmd
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v3
+      - name: Clean
+        run: Remove-Item -Recurse -Force .windows/winmd/
+      - name: Configure environment
+        shell: pwsh
+        run: |
+          "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x64" >> $env:GITHUB_PATH
+          ((Resolve-Path "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\*\bin\Hostx64\x64")
+            | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
+      - name: Generate
+        run:  dotnet build
+        working-directory: .metadata/
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: metadata
+          # TODO: Only need .windows/winmd/Microsoft.States.winmd,
+          # the core Win32 bindings are 15MB and don't seem needed
+          # to generate the Rust code since windows-metadata already
+          # includes these files.
+          path: .windows/winmd
+
+  generate-rust:
+    name: Generate Rust crate
+    runs-on: ubuntu-latest # See if this runs on Linux
+    needs: generate-winmd
+    steps:
+      - uses: actions/checkout@v3
+      - name: Clean
+        run: rm -rf .windows/winmd/ src/bindings.rs
+      - name: Download
+        uses: actions/download-artifact@v3
+        with:
+          name: metadata
+          path: .windows/winmd
+      - name: Generate
+        run: cargo build
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: crate
+          path: src/bindings.rs
