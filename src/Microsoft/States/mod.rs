@@ -11,21 +11,7 @@ impl IState {
         .from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IState> for ::windows::core::IUnknown {
-    fn from(value: IState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IState> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IState> for ::windows::core::IUnknown {
-    fn from(value: &IState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IState, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IState {
     fn clone(&self) -> Self {
         Self(self.0.clone())
