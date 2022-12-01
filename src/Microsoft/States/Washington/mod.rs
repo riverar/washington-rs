@@ -15,21 +15,7 @@ impl IWashington {
         .ok()
     }
 }
-impl ::core::convert::From<IWashington> for ::windows::core::IUnknown {
-    fn from(value: IWashington) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWashington> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWashington) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWashington> for ::windows::core::IUnknown {
-    fn from(value: &IWashington) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWashington, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWashington {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -84,36 +70,7 @@ impl IWashington2 {
         (::windows::core::Vtable::vtable(self).Load2)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWashington2> for ::windows::core::IUnknown {
-    fn from(value: IWashington2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWashington2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWashington2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWashington2> for ::windows::core::IUnknown {
-    fn from(value: &IWashington2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWashington2> for IWashington {
-    fn from(value: IWashington2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWashington2> for &'a IWashington {
-    fn from(value: &'a IWashington2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWashington2> for IWashington {
-    fn from(value: &IWashington2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWashington2, ::windows::core::IUnknown, IWashington);
 impl ::core::clone::Clone for IWashington2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
