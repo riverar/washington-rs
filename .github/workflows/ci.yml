@@ -23,10 +23,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: metadata
-          # TODO: Only need .windows/winmd/Microsoft.States.winmd,
-          # the core Win32 bindings are 15MB and don't seem needed
-          # to generate the Rust code since windows-metadata already
-          # includes these files.
+          # This includes ±15MB of prebuilt metadata from WinmdGenerator
+          # that our Microsoft.States.winmd is compatible with.
           path: .windows/winmd
 
   generate-rust:
