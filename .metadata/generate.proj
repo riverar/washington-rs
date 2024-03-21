@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.Windows.WinmdGenerator/0.33.18-preview">
+<Project Sdk="Microsoft.Windows.WinmdGenerator/0.59.13-preview">
     <PropertyGroup Label="Globals">
         <OutputWinmd>../.windows/winmd/Microsoft.States.winmd</OutputWinmd>
         <WinmdVersion>255.255.255.255</WinmdVersion>
@@ -16,13 +16,4 @@
             <Namespace>Microsoft.States.Washington</Namespace>
         </Partition>
     </ItemGroup>
-    <Target Name="CopyWin32Metadata" AfterTargets="Build">
-        <Copy
-            SourceFiles="$(PkgMicrosoft_Windows_SDK_Win32Metadata)\Windows.Win32.winmd"
-            DestinationFiles="..\.windows\winmd\Windows.Win32.winmd" />
-
-        <Copy
-            SourceFiles="$(PkgMicrosoft_Windows_SDK_Win32Metadata)\Windows.Win32.Interop.dll"
-            DestinationFiles="..\.windows\winmd\Windows.Win32.Interop.winmd" />
-    </Target>
 </Project>

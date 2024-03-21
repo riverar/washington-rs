@@ -1,10 +1,10 @@
 [package]
 name = "washington-rs"
-version = "0.2.0"
+version = "0.3.0"
 authors = [""]
 edition = "2018"
 license = "MIT OR Apache-2.0"
-description = "Rust for Azure Service Fabric SDK"
+description = "Rust for Washington SDK"
 repository = ""
 documentation = ""
 readme = ""
@@ -12,7 +12,6 @@ exclude = [".github", ".windows", ".metadata", "docs", "tests"]
 
 [workspace]
 members = [
-    "crates/tools/*",
     "crates/samples/*",
 ]
 
@@ -21,8 +20,19 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies.windows]
-version = "0.43"
-features = []
+version = "0.53"
+features = [
+    "implement"
+]
+
+[dependencies.windows-core]
+version = "0.53"
+features = [
+    "implement"
+]
+
+[build-dependencies.windows-bindgen]
+version = "0.53"
 
 [features]
 implement = []

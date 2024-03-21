@@ -1,12 +1,13 @@
 [package]
 name = "samples_impl"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2018"
 
 [dependencies.windows]
-version = "0.43.0"
+version = "0.53"
 features = [
-    "implement"
+    "implement",
+    "Win32_Foundation",
 ]
 
 [dependencies.washington-rs]

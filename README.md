@@ -3,22 +3,21 @@
 ## Notes
 * `.metadata` contains a metadata-generating MSBuild project (start poking around here!)
 * `.windows/winmd` is the output target for the metadata project
-* `crates/tools/api` uses `windows-metadata::reader::Reader` to generate the Rust library crate (at the root) using metadata
 * `crates/samples/impl` demonstrates consuming the library crate
-* `src/Microsoft/*` contains generated library crate code
+* `build.rs` generates Rust bindings from metadata and outputs to `src/bindings.rs`
 
 ## Building metadata
-1. Install the latest [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0).
+1. Install the latest production [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/latest).
 2. Open a Developer Command Prompt for Visual Studio
 3. Navigate to `.metadata` folder
 4. Issue command: `dotnet build`
 
 ## Generating Rust crate
 1. Ensure metadata is available in `.windows/winmd`
-2. `cargo run -p tools_api`
+2. `cargo build`
 
-## Additional resources
+## Additional resources/examples
+* Generating metadata for use with the windows crate for Rust https://withinrafael.com/2023/01/18/generating-metadata-for-the-windows-crate
 * Rust for DIA SDK https://github.com/microsoft/dia-rs/
-* Rust for Windows App SDK https://github.com/microsoft/windows-app-rs
 * Win32 Metadata https://github.com/microsoft/win32metadata
    * Microsoft.Windows.WinmdGenerator https://github.com/microsoft/win32metadata/tree/main/sources/GeneratorSdk

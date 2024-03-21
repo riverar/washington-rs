@@ -12,6 +12,5 @@ extern crate windows;
     clippy::extra_unused_lifetimes,
     clippy::useless_transmute
 )]
-mod Microsoft;
-
-pub use Microsoft::States::*;
+mod bindings;
+pub use bindings::*;
