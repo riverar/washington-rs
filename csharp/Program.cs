@@ -1,26 +1,20 @@
-﻿using Microsoft.States;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
+using Microsoft.States;
 using Windows.Win32.Foundation;
 
-// Create the impl and invoke the method.
-IState s = new Washington();
-BSTR bstr = new BSTR();
 unsafe
 {
-    s.GetFlower(&bstr);
+    // Create an instance and invoke the method
+    IState state = new Washington();
+    Console.WriteLine($"Washington's state flower is: {state.GetFlower()}");
 }
 
-string str = bstr.ToString();
 
-Console.WriteLine($"Hello: {str}");
-
-// Implement the Interface
-class Washington : IState
+// Implement the interface
+internal class Washington : IState
 {
-    public unsafe void GetFlower(BSTR* flower)
+    public unsafe BSTR GetFlower()
     {
-        IntPtr inPtr = Marshal.StringToBSTR("MyFlower");
-        *flower = (BSTR)inPtr;
+        return (BSTR)Marshal.StringToBSTR("Pacific Rhododendron");
     }
 }
-
