@@ -27,3 +27,8 @@ version = "0.58.0"
 
 [build-dependencies.windows-bindgen]
 version = "0.58.0"
+
+[patch.crates-io]
+windows-bindgen = { git = "https://github.com/microsoft/windows-rs.git", rev = "b7c2cd5031ba952bc6d072d6641a9a5444ac912d"}
+windows = { git = "https://github.com/microsoft/windows-rs.git", rev = "b7c2cd5031ba952bc6d072d6641a9a5444ac912d"}
+windows-core = { git = "https://github.com/microsoft/windows-rs.git", rev = "b7c2cd5031ba952bc6d072d6641a9a5444ac912d"}
