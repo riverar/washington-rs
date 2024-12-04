@@ -1,6 +1,20 @@
 import "objidl.idl";
 import "oaidl.idl";
 import "propidl.idl";
+// import "wtypes.idl";
+
+typedef struct StateData
+{
+    BOOLEAN Ok;
+    BOOL Ok2;
+    LPCWSTR Name;
+    LPCSTR Name2;
+    ULONG Number;
+    LONG Number2;
+    DWORD Flags;
+    BYTE* Data;
+    void* Reserved;
+} StateData;
 
 [
     object,
@@ -12,4 +26,11 @@ import "propidl.idl";
 interface IState: IUnknown
 {
     HRESULT GetFlower([out, retval] BSTR* flower);
+
+    // If the above StateData struct is removed
+    // This works for bindgen. It correctly references to the windows crate.
+    // BOOLEAN GetBool();
+    DWORD GetBool();
+
+    StateData* GetData();
 }

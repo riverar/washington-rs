@@ -5,12 +5,13 @@ fn main() {
     windows_bindgen::bindgen([
         "--in",
         ".windows/winmd/Microsoft.States.winmd",
+        "--in",
+        "default",
         "--out",
         "src/bindings.rs",
         "--filter",
         "Microsoft.States",
-        "--config",
-        "implement"
-    ])
-    .unwrap();
+        "--reference",
+        "windows,skip-root,Windows",
+    ]);
 }
