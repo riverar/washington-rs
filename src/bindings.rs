@@ -96,8 +96,8 @@ pub mod Microsoft {
         #[repr(C)]
         #[derive(Clone, Copy, Debug, PartialEq)]
         pub struct StateData {
-            pub Ok: super::super::Windows::Win32::Foundation::BOOLEAN,
-            pub Ok2: super::super::Windows::Win32::Foundation::BOOL,
+            pub Ok: windows::Win32::Foundation::BOOLEAN,
+            pub Ok2: windows::Win32::Foundation::BOOL,
             pub Name: windows_core::PCWSTR,
             pub Name2: windows_core::PCSTR,
             pub Number: u32,
@@ -243,25 +243,6 @@ pub mod Microsoft {
                 }
             }
             impl windows_core::RuntimeName for IWashington2 {}
-        }
-    }
-}
-pub mod Windows {
-    pub mod Win32 {
-        pub mod Foundation {
-            #[must_use]
-            #[repr(transparent)]
-            #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-            pub struct BOOL(pub i32);
-            impl windows_core::TypeKind for BOOL {
-                type TypeKind = windows_core::CopyType;
-            }
-            #[repr(transparent)]
-            #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-            pub struct BOOLEAN(pub u8);
-            impl windows_core::TypeKind for BOOLEAN {
-                type TypeKind = windows_core::CopyType;
-            }
         }
     }
 }

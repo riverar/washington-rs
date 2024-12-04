@@ -21,6 +21,7 @@ targets = []
 
 [dependencies.windows]
 version = "0.58.0"
+features = ["Win32"]
 
 [dependencies.windows-core]
 version = "0.58.0"
@@ -29,6 +30,6 @@ version = "0.58.0"
 version = "0.58.0"
 
 [patch.crates-io]
-windows-bindgen = { git = "https://github.com/microsoft/windows-rs.git", rev = "b7c2cd5031ba952bc6d072d6641a9a5444ac912d"}
-windows = { git = "https://github.com/microsoft/windows-rs.git", rev = "b7c2cd5031ba952bc6d072d6641a9a5444ac912d"}
-windows-core = { git = "https://github.com/microsoft/windows-rs.git", rev = "b7c2cd5031ba952bc6d072d6641a9a5444ac912d"}
+windows-bindgen = { git = "https://github.com/microsoft/windows-rs.git", rev = "8ebef12cf50c71cf4b0054fbc4b74cc8c37bc72f"}
+windows = { git = "https://github.com/microsoft/windows-rs.git", rev = "8ebef12cf50c71cf4b0054fbc4b74cc8c37bc72f"}
+windows-core = { git = "https://github.com/microsoft/windows-rs.git", rev = "8ebef12cf50c71cf4b0054fbc4b74cc8c37bc72f"}
